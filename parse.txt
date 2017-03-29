@@ -1,0 +1,58 @@
+50:
+init_declarator => ID EQ DIG
+52:
+init_declarator_list => init_declarator
+48:
+declaration => INT init_declarator_list SEMIC
+6:
+statement => declaration
+13:
+block_item_list => statement
+15:
+primary_expression => ID
+17:
+postfix_expression => primary_expression
+22:
+multiplication_expression => postfix_expression
+25:
+additive_expression => multiplication_expression
+28:
+relational_expression => additive_expression
+19:
+postfix_expression => DIG
+22:
+multiplication_expression => postfix_expression
+25:
+additive_expression => multiplication_expression
+33:
+relational_expression => relational_expression EQEQ additive_expression
+35:
+logical_AND_expression => relational_expression
+37:
+logical_OR_expression => logical_AND_expression
+42:
+assignment_expression => logical_OR_expression
+39:
+expression => assignment_expression
+43:
+string_literal => DQ_MARKS STR DQ_MARKS
+45:
+out_statement => PRINT LR_BRAC string_literal RR_BRAC SEMIC
+7:
+statement => out_statement
+13:
+block_item_list => statement
+12:
+compound_statement => LB_BRAC block_item_list RB_BRAC
+1:
+statement => compound_statement
+8:
+while_statement => WHILE LR_BRAC expression RR_BRAC statement
+4:
+statement => while_statement
+14:
+block_item_list => block_item_list statement
+12:
+compound_statement => LB_BRAC block_item_list RB_BRAC
+0:
+start => MAIN LR_BRAC RR_BRAC compound_statement
